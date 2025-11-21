@@ -1,0 +1,73 @@
+Q1 Write a prog that ask the user for their name and age and print "Hello Sakshi, you are 21 year old"
+name=input("enter a name ")
+age=int(input("Enter a age "))
+print("Hello ",name,", you are ",age,"year old!")
+
+Q2 Take two no as input from user and print thier sum,difference,product and quioent
+a=int(input("Enter a number1 "))
+b=int(input("Enter a number2 "))
+print("Sum of two number= ",a+b)
+print("Difference of two number= ",a-b)
+print("Product of two number= ",a*b)
+print("Quotient of two number= ",a%b)
+
+Q3 As the user to enter two integers and one float convert them all to float and print avg
+a=int(input("Enter a number1= "))
+b=int(input("Enter a number2= "))
+c=float(input("Enter a number2= "))
+a=float(a)
+b=float(b)
+print(type(a))
+print(type(b))
+avg=(a+b+c)/3
+print("Avgerage of three number= ",avg)
+
+Q4 As the user enter a string conataning a number (eg="45").convert it to int,float and again string.
+st=input("Enter a string")
+st=int(st)
+print("int typecasting",type(st),st)
+st=float(st)
+print("Float typecasting",type(st),st)
+st=str(st)
+print("String typecasting",type(st),st)
+
+Q5 Evaluate x=10+3*2**2 and print
+x=10+3*2**2
+print(x)
+
+Q6 Write a prog to swap values of two numbers entered by user
+a=int(input("Enter a number1= "))
+b=int(input("Enter a number2= "))
+print("Numbers before swapping ",a,b)
+c=a
+a=b
+b=c
+print("Numbers after swapping ",a,b)
+
+Q7 Ask the user for temp in celsius convert it to float then calculate and print 
+temp in fahrenhit f=(celcius*(9/5)+32)
+temp=int(input("Enter a temperature in celcius= "))
+temp=float(temp)
+print("Tempearture in celsius= ",temp)
+f=temp*(9/5)+32
+print("Temperature in fahrenheit ",f)
+
+Q8 Take radius as user input and print area (area=pi*r*r)
+radius=int(input("Enter radius= "))
+area=float(3.14*radius*radius)
+print("Area= ",area)
+
+Q9 Ask the user for principal(P),Rate(R),Time(T).Convert all to float 
+and compute to simple interest
+p=int(input("Enter principal= "))
+r=int(input("Enter rate= "))
+t=int(input("Enter time= "))
+SI=(p*r*t)/100
+print("Simple interest= ",SI)
+
+Q10 Take a decimal number as input (like 45.78) and output its
+1.integer part -45
+2.fractional part-.78
+a=float(input("Enter a decimal number= "))
+Integer=int(a)
+Float=a-Integer
