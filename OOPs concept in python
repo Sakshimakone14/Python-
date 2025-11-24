@@ -1,0 +1,256 @@
+Q1 create a class bankaccount with attributes acno,oname and bal add method to deposit to withdraw and check bal
+class bankaccount:
+    def __init__(self,accno,oname,bal):
+        self.accno=accno
+        self.oname=oname
+        self.bal=bal
+    def deposit(self,dpo):
+        self.dpo=dpo
+
+    def withdraw(self,wdraw):
+        self.wdraw=wdraw
+    
+    def disp(self):
+        print(f"Account number is{self.accno} of {self.oname} where balance is{self.bal}")
+        print(f"The deposit is{self.dpo} and withdraw is{self.wdraw} ")
+
+    def check_bal(self,dpo,wdraw,bal):
+        self.dpo=dpo
+        self.wdraw=wdraw
+        self.bal=bal
+        total=(self.dpo+self.bal)-self.wdraw
+        print(f"Total balance is {total}")    
+    
+
+b=bankaccount(101,"sakshi",10000)
+b.deposit(2000)
+b.withdraw(500)
+b.disp() 
+b.check_bal(500,2000,10000)
+
+Q2 Create a class Book with the following attribute Tittle author and review
+Add methods 1 add a new review
+2 count review
+3 display review
+class Book:
+    count=0
+    def __init__(self,title,author):
+        self.title=title
+        self.author=author
+
+    def add_review(self,review):
+        self.review=review
+        Book.count+=1
+
+    def disp_info(self):
+        print(f"Title is {self.title} where author is {self.author} and review is {self.review}")
+        print("Review count= ",Book.count)    
+b1=Book("abc","xyz")
+b1.add_review("GOOD")
+b2=Book("abc","xyz")
+b2.add_review("Very GOOD")
+b1.disp_info()
+
+Q3 Create a class student with private attibutes name,roll no and marks Provide getter and setter
+method with validation (eg mark cannot be negative,roll no must be between 1 & 100 & name cannot be empty)
+class stud:
+   def __init__(self):
+      self.__name=""
+      self.__roll=0
+      self.__mark=0
+
+   def setter_mark(self,mark):
+      if(mark<0):
+         print("Mark cannot be negative")
+      else:
+         self.__mark=mark 
+
+   def setter_name(self,name):
+      if(name==" "):
+         print("Name cannot be empty")
+      else:
+         self.__name=name
+
+   def setter_roll(self,roll):
+      if(roll<1 and self.__roll>=100):
+         self.__roll=roll
+
+   def get_info(self):
+      print(f"The student name {self.__name} roll no is {self.__roll} and mark is {self.__mark}")
+
+s=stud() 
+s.setter_mark(-89)    
+s.setter_name("sakshi")    
+s.setter_roll(34) 
+s.get_info()   
+      
+class shape:
+      def area(self):
+            return 0
+
+ Q4 Create a class shape with method area create a subclass circle,rectangle and triangle that overide area method    
+class circle(shape):
+      def __init__(self,r): 
+            self.r=r
+      def area(self):
+            self.a=3.14*self.r*self.r
+            print(f"Area of circle is {self.a}")
+
+class rectangle(shape):
+      def __init__(self,l,b): 
+            self.l=l
+            self.b=b
+      def area(self):
+            self.a=self.l*self.b
+            print(f"Area of rectangle is {self.a}") 
+
+class triangle(shape):
+      def __init__(self,l,b): 
+            self.l=l
+            self.b=b
+      def area(self):
+            self.a=0.2*(self.l+self.b)
+            print(f"Area of rectangle is {self.a}") 
+                      
+c=circle(2)
+c.area()
+
+r=rectangle(2,3)
+r.area()
+
+t=triangle(4,5)
+t.area()
+    
+Q5 Create a base class vehical with attributes like brand and Model
+create a subclass car with attribute seat and subclass bike with atribute enginne_cc        
+class vehical:
+    def __init__(self,brand,model):
+        self.brand=brand
+        self.model=model
+
+class car(vehical):
+    def __init__(self,brand,model,seat):
+        super().__init__(brand,model)
+        self.seat=seat
+    def info_car(self):
+        print(f"The car brand is {self.brand} car model is {self.model} the total seat is {self.seat}")   
+
+class bike(vehical):
+    def __init__(self,brand,model,engine_cc):
+        super().__init__(brand,model)
+        self.engine_cc=engine_cc
+    def info_bike(self):
+        print(f"The car brand is {self.brand}  car model is {self.model} and enginnecc is {self.engine_cc}") 
+
+c=car("98","abc","78")
+c.info_car()
+
+b=bike(100,"xyz","pqr")
+b.info_bike()                 
+    
+Q6 create an abstract class emp with and abstract methos cal_Sal()
+create subclasses intern,fulltimeemp and constractemp that implemented the method differently
+from abc import ABC,abstractmethod
+class Emp:
+    def calculate_sal(self):
+        pass
+
+class Intern(Emp):
+    def calculate_sal(self):
+        return 2000 
+
+class Fulltime(Emp):
+    def calculate_sal(self):
+        return 5000    
+
+class ContractEmp(Emp):
+    def calculate_sal(self):
+        return 7000
+
+i=Intern()
+print(f"Intern Salary {i.calculate_sal()}")
+
+f=Fulltime()
+print(f"Fulltime Salary {f.calculate_sal()}")
+
+c=ContractEmp()
+print(f"ContractEmp Salary {c.calculate_sal()}")
+
+print(f"Total sal {i.calculate_sal()+f.calculate_sal()+c.calculate_sal()}")
+   
+
+class person:
+    def __init__(self,name,age=20,address="pune"):
+        self.name=name
+        self.age=age
+        self.address=address
+
+    def show(self):
+        print(f"The {self.name} with age {self.age} from {self.address} ")  
+Q7 create a class person that allows the constructor to work with name only name+age and name+age+address
+use default constructor
+p=person("sakshi")
+p.show()
+
+p1=person("sakshi",20)
+p1.show()
+
+p2=person("sakshi",20,"Mumbai")
+p2.show()
+ 
+Q8 Create a class player with a class variable player_count and instance variable name and level
+track how many player were created
+class player:
+    pcount=0
+    def __init__(self,name,level):
+        self.name=name
+        self.level=level
+        player.pcount+=1
+
+    def disp(self):
+        print(f"Name of player {self.name} with level {self.level}")  
+        print(f"Total prayer are {player.pcount}")  
+
+p=player("sakshi",3)
+p.disp()
+
+p1=player("kunal",13)
+p1.disp()
+    
+Q9 create a class herbivore,carnivore and omnivore with some attribute & method.Then create a class 
+bear that inherit from all the above classes and subclasses how multiple inheritance works
+class herbivour:
+    def __init__(self,herbi):
+        self.herbi=herbi
+
+    def her_info(self):
+        print(f"Herbivours animal is {self.herbi}")    
+
+class carnivore:
+    def __init__(self,carni):
+        self.carni=carni
+        
+    def car_info(self):
+        print(f"carnivore animal is {self.carni}")
+
+class  omnivore:
+    def __init__(self,omni):
+        self.omni=omni
+        
+    def omni_info(self):
+        print(f"Omnivore animal is {self.omni}")  
+
+class Bear(herbivour,carnivore,omnivore):  
+     def __init__(self,herb,carni,omni):
+         herbivour.__init__(self,herb)
+         carnivore.__init__(self,carni)
+         omnivore.__init__(self,omni)
+           
+     def info(self):
+          herbivour.her_info(self)
+          carnivore.car_info(self)
+          omnivore.omni_info(self)
+b=Bear("goat","fish","berries")
+b.info()
+        
+ 
