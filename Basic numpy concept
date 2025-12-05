@@ -1,0 +1,74 @@
+#Simple way to create 1D array and display it
+import numpy as np
+arr=np.array([1,2,3,4,5])
+print("1D array= ",arr)
+
+#Simple way to create 2D array and display it
+import numpy as np
+arr1=np.array([[5,6,7],[9,10,11]])
+print("2D array=",arr1)
+print(type(arr1),arr1.shape)
+
+#Simple way to create 3D array and display it
+import numpy as nb
+arr1=nb.array([[1,2,3],[4,5,6],[7,8,9]])
+print(arr1)
+
+#Some inbuilt functions for creating and array
+import numpy as np
+arr1=np.zeros(3)
+print("The array= ",arr1,"Dimension of array= ",arr1.shape)#create an array where all elements are zero
+
+arr2=np.ones(3)
+print("The array= ",arr2,"Dimension of array= ",arr2.shape)#create an array where all elements are one
+
+arr3=np.eye(3,3)
+print("The array= ",arr3,"Dimension of array= ",arr3.shape)#create an array that is identity
+
+arr4=np.arange(1,20)
+print("The array= ",arr4,"Dimension of array= ",arr4.shape)#display elements in the range
+
+#Numpy properties
+import numpy as nb
+arr=nb.array([1,2,3,4,5,6,7,8,9,10])
+print("Array ",arr)#array is display
+print("Size of array ",arr.size)#returns no of elements in array
+print("Shape/Dimension of array ",arr.shape)#returns dimension of array
+print("dtype of array ",arr.dtype)#object of array
+print(arr.itemsize)#size of each element in bytes
+
+
+#some mathmatics function
+import numpy as np
+#aggregate method
+arr=nb.array([1,2,3,4,5,6,7,8,9,10])
+print("Sum of array element= ",arr.sum())
+print("Product of array element= ",arr.prod())
+print("min element of array= ",arr.min())
+print("max element of array= ",arr.max())
+print("mean of array element= ",arr.mean())
+print("std of array element= ",arr.std())
+print("Argmin of array element= ",arr.argmin())
+print("Argmax of array element= ",arr.argmax())
+
+#power
+arr=nb.array([1,2,3,4,5,6,7,8,9,10])
+print("Power of element ",np.pow(arr,2))
+print("Square of element ",np.square(arr))
+print("Square of element ",np.sqrt(arr))
+
+#Extras
+arr=nb.array([1,12,3,14,4,7,7,8,9,10,10])
+print("Unique element from array ",np.unique(arr))
+print("sort element from array ",np.sort(arr))
+
+#Rounding
+arr=np.array([1,12.5,3,14,4,7,7,8,9,10,10])
+print("Rounds off to nearest value ",np.round(12.5))
+print("Rounds down ",np.floor(12.5))
+print("Rounds up ",np.ceil(12.5))
+print("Removes fractional part ",np.trunc(12.5))
+
+
+
+
