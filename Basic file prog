@@ -1,0 +1,39 @@
+Q1 create a prog that
+1.opren a file "name.txt" in write Mode
+2.Write 5 names entered by UserWarning
+3.then open the same file in read mode and print all names
+f=open("names.txt","w")
+f.write("sakshi")
+f.write("\nkanchan")
+f.write("\nArti")
+f.write("\nashwini")
+f.write("\nishwari")
+f=open("names.txt","r")
+data=f.read()
+print(data)
+
+Q2 create a prog that
+1.open a file "log.txt" in append mode
+2.Adds a new log entry (like"Program run succesfully")
+3.opens the file in read mode and prints all logs
+f=open("log.txt","a") 
+f.write("\nProgram run succesfully")
+f=open("log.txt","r")
+data=f.read()
+print(data)
+
+Q3 create a prog that has
+1.Has a list of num[5,10,15,20,25]
+2.uses a list comprehension to create a new list with only num greater than 15
+3>print new list 
+list=[5,10,15,20,25]
+list = [val for val in list  if val>15 ]
+print(list)
+
+Q4 Check whether file exist or not 
+import os 
+f="log.txt"
+if os.path.exists(f):
+    print("file found")
+else:
+    print("file not found")    
