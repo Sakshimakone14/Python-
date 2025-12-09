@@ -1,0 +1,59 @@
+Q1. Start by loading the IRIS dataset. [Dataset Link: Iris Flower Dataset]
+A. Display the following information:
+First 10 rows
+Shape & Data types:
+Summary statistics (mean, std, min, max)
+B. Select only those rows where:
+petal length > 4.5
+species = "Iris-virginica"
+C. Group by species and compute:
+Average sepal length
+Maximum petal width
+Standard deviation of sepal width
+D. Create a new column: "petal_ratio" petal_length/petal_width
+For each species, find the average petal_ratio.
+
+import pandas as pd
+df = pd.read_csv("iris.csv")
+df3=df.head(10)
+df.shape
+df.dtypes
+df.describe()
+
+data = df[(df["petallength"] > 4.5) & (df["species"] == "virginica")]
+data
+df.groupby("species").agg(
+      avg_sepal_length = ("sepallength" , "mean"),
+      max_sepal_length = ("petalwidth" , "max"),
+      std_sepal_width = ("sepalwidth" , "std")
+)
+df2=df.copy()
+df2["petal_ratio"] = df2["petallength"]/df2["petalwidth"]
+df2.groupby("species").agg(
+    {
+      avg_petal_ration :=("petal_ratio","mean") 
+    }
+)
+
+Q2. Start by loading the TITANIC dataset. [Dataset Link: Titanic Dataset]
+A. Display only columns: Name, Sex, Age, Fare, Survived
+B. Select passengers who:
+Are female
+Fare > 30
+C. Group by Pclass and compute:
+Survival rate
+Average Fare
+Average Age
+
+import pandas as pd
+df = pd.read_csv("titanic.csv")
+dfcol=df[["name","sex","age","fare","survived"]]
+dfcol
+df=df[(df["sex"]=="female") & (df["fare"] > 30)]
+df2=df
+df2=df2.groupby('pclass').agg(
+        survival_rate = ("survived","mean"),
+        avg_fare = ("fare","mean"),
+        avg_age = ("age","mean")
+)
+df2
