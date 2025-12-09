@@ -1,0 +1,103 @@
+create table emp(empid int primary key,fname varchar(50),lname varchar(50),dep varchar(50),sal int,Hiredate date);
+
+insert into emp(empid,fname,lname,dep,sal,Hiredate) values
+(101,"Alice","Johnson","IT",6500,'2020-03-15'),
+(102,"mark","Rivera","HR",4800,'2019-07-22'),
+(103,"sophia","Lee","Finance",7200,'2021-01-10'),
+(104,"daniel","Kim","IT",5100,'2018-11-05'),
+(105,"Emma","Brown","marketing",5800,'2022-04-18'),
+(106,"Liam","Patel","Finance",5300,'2020-09-29'),
+(107,"Olivia","Garcia","HR",6900,'2017-06-30'),
+(108,"Noah","Thompson","IT",4600,'2023-02-12'),
+(109,"Ava","Martinez","marketing",7500,'2019-12-02'),
+(110,"Ethan","Davis","Finance",8000,'2016-05-14');
+
+Q1)Write a query to display every emp and their data 
+select * from emp;
+
+Q2)List only firstname, lastname and salary of every emp.
+select fname,lname,sal from emp;
+
+Q3)Show all emp who work in the 'IT' department.
+select * from emp where dep='IT'; 
+
+Q4)Retrieve emp with sal greater than 6000
+select * from emp where sal > 6000;
+
+Q5)List all emp order by HireDate from newest to oldest.
+select * from emp order by Hiredate desc;
+
+Q6)show a list of all unique dep present in table
+select distinct dep from emp;
+
+Q7)Find emp whose first name start with 'A'
+select * from emp where fname like 'A%';
+
+Q8)Show emp whose sal are between 4000 and 7000
+select * from emp where sal between 4000 and 7000;
+
+Q9)Find the average sal of all employees
+select avg(sal) from emp;
+
+Q10)list each dep along with no of emp but only include dep with more than 3 emp.
+select dep,count(Empid) from emp group by dep having count(Empid) > 3;
+---------------------------------------------------------------------------------
+create table teacher with (id,name,sub,sal) and insert some values
+
+create table teacher(id int primary key,name varchar(30),sub varchar(30),sal int); 
+
+insert into teacher(id,name,sub,sal) values
+(23,"ajay","math",50000),
+(47,"bharat","english",60000),
+(18,"chetan","chemistry",45000),
+(9,"diya","physics",75000); 
+
+select * from teacher;
+
+Q1)select teacher whose sal is greater than 55000
+select * from teacher where sal > 55000;
+
+Q2)Rename the sal column of teacher table to ctc
+alter table teacher change column sal ctc int;
+
+Q3)Update sal of all teacher by giving them an increament of 25%
+update teacher set ctc=ctc+(0.25)*ctc;
+
+Q4)Add new column for teacher called city.The default city should be "gurgaon"
+alter table teacher add column cities varchar(30) default "gurgaon";
+
+Q5)Delete the salary column for teacher table
+alter table teacher drop column ctc;
+---------------------------------------------------------------------------------
+create table stud with (rollno,name,city,marks) and insert some values
+
+create table stud(rollno int primary key,name varchar(30),city varchar(30),marks int);
+
+insert into stud(rollno,name,city,marks) values
+(110,"adam","Delhi",76),
+(108,"bob","Mumbai",65),
+(124,"casey","Pune",94),
+(112,"duke","Pune",80);
+
+select * from stud;
+
+Q1) select all student who scored 75+
+select * from stud where marks >75;
+
+Q2)Find names of all cities where student are from.
+select distinct city from stud;
+
+Q3)Find maximum marks of student from each city
+select city,max(marks) from stud group by city;
+
+Q4)Find the average of the class
+select avg(marks) from stud;
+
+Q5)Add a new column grade assign grade such as
+marks >80,grade=O
+marks 70-80,grade A
+marks 60-70,grade B
+alter table stud add column grade varchar(20);
+update stud set grade='O' where marks>=80;
+update stud set grade='A' where marks >70 and marks <80;
+update stud set grade='B' where marks >60 and marks <70;
